@@ -10,7 +10,7 @@ echo "Submitting $num_submits sequential jobs"
 
 COMMON_ARGS="--parsable --nodes=$nodes --gpus-per-node=8 --account=llmservice_fm_post --job-name=nemosft --partition=batch --time=240 --cpus-per-task=128 --mem=0 --output=logs/nemosft_%j/%a.out --error=logs/nemosft_%j/%a.err"
 starting_command="cd /workspace/lustre/Workspace/RL && pwd && ls -l && source .venv/bin/activate && which python && export PATH=\"/lustre/fsw/portfolios/llmservice/users/dongfuj:$PATH\" && echo \$PATH"
-command="${starting_command} && uv run examples/run_sft.py --config=examples/configs/sft_acetoolreason_megatron.yaml --cluster.num_nodes=$nodes"
+command="${starting_command} && uv run examples/run_sft.py --config=examples/configs/sft_acetoolreason_megatron.yaml cluster.num_nodes=$nodes"
 container="/lustre/fsw/portfolios/llmservice/users/dongfuj/images/acetoolreason.sqsh"
 mounts="/lustre"
 
