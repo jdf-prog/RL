@@ -13,3 +13,13 @@ ray status
 
 
 uv run examples/run_sft.py --config=examples/configs/sft_acetoolreason_megatron.yaml
+
+uv run examples/run_sft.py --config=examples/configs/sft_acetoolreason_mix_megatron.yaml
+
+uv run examples/run_sft.py --config=examples/configs/sft_acetoolreason_zihan_sft.yaml
+
+
+
+uv run examples/run_sft.py --config=examples/configs/sft_acetool_qwen3_megatron.yaml
+
+uv run examples/run_sft.py --config=examples/configs/sft_acetoolreason11_megatron.yaml

@@ -427,6 +427,9 @@ def sft_train(
                             "make_sequence_length_divisible_by"
                         ],
                     )
+                    # print(cat_and_padded["token_ids"].shape, input_lengths.shape)
+                    # print(cat_and_padded["token_loss_mask"].sum(-1).tolist())
+                    # print(tokenizer.decode(cat_and_padded["token_ids"][0]))
 
                     train_data: BatchedDataDict = BatchedDataDict(
                         {

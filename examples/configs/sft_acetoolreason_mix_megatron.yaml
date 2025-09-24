@@ -13,7 +13,7 @@ sft:
 
 checkpointing:
   enabled: true
-  checkpoint_dir: "results/sft_acetoolreason_with_code_1e-5"
+  checkpoint_dir: "results/sft_acetoolreason_mix"
   metric_name: "val_loss"
   higher_is_better: false
   keep_top_k: 100
@@ -54,8 +54,8 @@ policy:
       bf16: true
       clip_grad: 0
       fp16: false
-      lr: 0.00001
-      min_lr: 0.000001
+      lr: 0.0000007
+      min_lr: 0.0000001
       optimizer: adam
       params_dtype: bfloat16
       sgd_momentum: 0.9
@@ -72,7 +72,7 @@ policy:
       end_weight_decay: 0.01
       lr_decay_iters: 1000
       lr_decay_style: constant
-      lr_warmup_init: 0.000001
+      lr_warmup_init: 0.0000001999999
       lr_warmup_iters: 100
       start_weight_decay: 0.01
       weight_decay_incr_style: constant
@@ -121,8 +121,8 @@ policy:
 data:
   max_input_seq_length: ${policy.max_total_sequence_length}
   dataset_name: "ResponseDataset"
-  train_data_path: "sft-data-processed/problems-aops/reasoning-high-with-code-acereason_nemotron_7b-deepseek-question_answer.filterpythonlibs.maxlen16000_train.jsonl"
-  val_data_path: "sft-data-processed/problems-aops/reasoning-high-with-code-acereason_nemotron_7b-deepseek-question_answer.filterpythonlibs.maxlen16000_val.jsonl"
+  train_data_path: "sft-data-processed/problems-aops/reasoning-high-code-mix-acereason_nemotron_7b-deepseek-question_answer/QA_train_epoch_0_train.jsonl"
+  val_data_path: "sft-data-processed/problems-aops/reasoning-high-code-mix-acereason_nemotron_7b-deepseek-question_answer/QA_train_epoch_0_val.jsonl"
   input_key: "question"
   output_key: "answer"
   add_bos: false
@@ -137,12 +137,12 @@ logger:
   monitor_gpus: true  # If true, will monitor GPU usage and log to wandb and/or tensorboard
   wandb:
     project: "sft-acetoolreason-megatron"
-    name: "with_code_gptoss_1e-5_b256"
+    name: "mix_with_code_gptoss"
   tensorboard:
-    log_dir: "tb_sft_acetoolreason_megatron_withcodegptoss_1e-5_b256"
+    log_dir: "tb_sft_acetoolreason_megatron_mixwithcodegptoss"
   mlflow:
     experiment_name: "sft-dev"
-    run_name: "sft-acetoolreason-megatron-withcodegptoss-1e-5-b256"
+    run_name: "sft-acetoolreason-megatron-mixwithcodegptoss"
   gpu_monitoring:
     collection_interval: 10  # How often to collect GPU usage metrics (in seconds)
     flush_interval: 10  # How often to flush GPU usage metrics to the loggers (in seconds)

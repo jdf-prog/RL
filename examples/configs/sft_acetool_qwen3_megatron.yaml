@@ -13,17 +13,17 @@ sft:
 
 checkpointing:
   enabled: true
-  checkpoint_dir: "results/sft_acetoolreason_with_code_1e-5"
+  checkpoint_dir: "results/sft_acetool_qwen3_megatron"
   metric_name: "val_loss"
   higher_is_better: false
   keep_top_k: 100
   save_period: 250
 
 policy:
-  model_name: "models/acereason_nemotron_7b"
+  model_name: "models/qwen3_8b"
   tokenizer:
-    name: models/acereason_nemotron_7b
-    chat_template: NULL
+    name: models/qwen3_8b
+    chat_template: "default"
   train_global_batch_size: 256
   train_micro_batch_size: 1
   max_total_sequence_length: 32000
@@ -120,14 +120,15 @@ policy:
 
 data:
   max_input_seq_length: ${policy.max_total_sequence_length}
-  dataset_name: "ResponseDataset"
-  train_data_path: "sft-data-processed/problems-aops/reasoning-high-with-code-acereason_nemotron_7b-deepseek-question_answer.filterpythonlibs.maxlen16000_train.jsonl"
-  val_data_path: "sft-data-processed/problems-aops/reasoning-high-with-code-acereason_nemotron_7b-deepseek-question_answer.filterpythonlibs.maxlen16000_val.jsonl"
-  input_key: "question"
-  output_key: "answer"
-  add_bos: false
-  add_eos: false
-  add_generation_prompt: false
+  dataset_name: "openai_format"
+  train_data_path: "sft-data-processed/problems-aops/reasoning-high-with-code-acereason_nemotron_7b_1_1-qwen-sharegpt_shards/all_train.jsonl"
+  val_data_path: "sft-data-processed/problems-aops/reasoning-high-with-code-acereason_nemotron_7b_1_1-qwen-sharegpt_shards/all_val.jsonl"
+  chat_key: "messages"
+  system_key: null
+  system_prompt: null
+  # add_bos: false
+  # add_eos: false
+  # add_generation_prompt: false
 
 logger:
   log_dir: "logs"  # Base directory for all logs
@@ -137,12 +138,12 @@ logger:
   monitor_gpus: true  # If true, will monitor GPU usage and log to wandb and/or tensorboard
   wandb:
     project: "sft-acetoolreason-megatron"
-    name: "with_code_gptoss_1e-5_b256"
+    name: "qwen3_8b_acetool_1e-5_b256"
   tensorboard:
-    log_dir: "tb_sft_acetoolreason_megatron_withcodegptoss_1e-5_b256"
+    log_dir: "tb_qwen3_8b_acetool_1e-5_b256"
   mlflow:
     experiment_name: "sft-dev"
-    run_name: "sft-acetoolreason-megatron-withcodegptoss-1e-5-b256"
+    run_name: "sft-acetool-qwen3-megatron-1e-5-b256"
   gpu_monitoring:
     collection_interval: 10  # How often to collect GPU usage metrics (in seconds)
     flush_interval: 10  # How often to flush GPU usage metrics to the loggers (in seconds)
