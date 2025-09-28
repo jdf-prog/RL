@@ -23,3 +23,8 @@ uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkp
     --hf-model models/acereason_nemotron_7b_1_1 \
     --megatron-path results/sft_acetoolreason_11_1e-5/step_2250/policy/weights/iter_0000000 \
     --hf-path models/acetoolreason-nemotron_11_7b_sft_with_code_2250_step_1e-5
+
+uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkpoint_conversion.py export \
+    --hf-model models/acereason_nemotron_7b_1_1 \
+    --megatron-path results/sft_acetoolreason_11_1e-5_v2/step_2750/policy/weights/iter_0000000 \
+    --hf-path models/acetoolreason-nemotron_11_7b_v2_sft_with_code_2750_step_1e-5
