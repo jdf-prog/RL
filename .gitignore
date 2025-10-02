@@ -48,3 +48,4 @@ code_snapshots*/
 !default_runtime_env.yaml
 /models
 /sft-data*
+/test*

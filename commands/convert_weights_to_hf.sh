@@ -28,3 +28,13 @@ uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkp
     --hf-model models/acereason_nemotron_7b_1_1 \
     --megatron-path results/sft_acetoolreason_11_1e-5_v2/step_2750/policy/weights/iter_0000000 \
     --hf-path models/acetoolreason-nemotron_11_7b_v2_sft_with_code_2750_step_1e-5
+
+uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkpoint_conversion.py export \
+    --hf-model models/zihan_sft_8b_think_v2 \
+    --megatron-path results/acetool_zihan_sft_8b_think_v2/step_2000/policy/weights/iter_0000000 \
+    --hf-path models/acetool_zihan_nemotron_8b_think_v2_sft_2000_step
+
+uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkpoint_conversion.py export \
+    --hf-model models/qwen3_8b \
+    --megatron-path results/sft_acetool_qwen3_megatron/step_2000/policy/weights/iter_0000000 \
+    --hf-path models/qwen3_8b_acetool_sft_2000_step
