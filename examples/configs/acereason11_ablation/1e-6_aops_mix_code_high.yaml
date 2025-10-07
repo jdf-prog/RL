@@ -1,5 +1,5 @@
 # SFT Algorithm Configuration
-defaults: sft_openmathinstruct2.yaml
+defaults: default.yaml
 
 sft:
   max_num_epochs: 1
@@ -13,7 +13,7 @@ sft:
 
 checkpointing:
   enabled: true
-  checkpoint_dir: "results/sft_acetoolreason_11_1e-5_v2"
+  checkpoint_dir: "results/sft_ar_11_1e-6_apos_code_high"
   metric_name: "val_loss"
   higher_is_better: false
   keep_top_k: 100
@@ -54,8 +54,8 @@ policy:
       bf16: true
       clip_grad: 0
       fp16: false
-      lr: 0.00001
-      min_lr: 0.000001
+      lr: 0.000001
+      min_lr: 0.0000001
       optimizer: adam
       params_dtype: bfloat16
       sgd_momentum: 0.9
@@ -72,7 +72,7 @@ policy:
       end_weight_decay: 0.01
       lr_decay_iters: 1000
       lr_decay_style: constant
-      lr_warmup_init: 0.000001
+      lr_warmup_init: 0.0000001
       lr_warmup_iters: 100
       start_weight_decay: 0.01
       weight_decay_incr_style: constant
@@ -138,12 +138,12 @@ logger:
   monitor_gpus: true  # If true, will monitor GPU usage and log to wandb and/or tensorboard
   wandb:
     project: "sft-acetoolreason-megatron"
-    name: "11_with_code_gptoss_1e-5_b256_v2"
+    name: "sft-ar-11-1e-6-apos-code-high"
   tensorboard:
-    log_dir: "tb_sft_acetoolreason_11_megatron_withcodegptoss_1e-5_b256_v2"
+    log_dir: "tb_sft-ar-11-1e-6-apos-code-high"
   mlflow:
     experiment_name: "sft-dev"
-    run_name: "sft-acetoolreason-11-megatron-withcodegptoss-1e-5-b256_v2"
+    run_name: "sft-ar-11-1e-6-apos-code-high"
   gpu_monitoring:
     collection_interval: 10  # How often to collect GPU usage metrics (in seconds)
     flush_interval: 10  # How often to flush GPU usage metrics to the loggers (in seconds)

@@ -38,3 +38,45 @@ uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkp
     --hf-model models/qwen3_8b \
     --megatron-path results/sft_acetool_qwen3_megatron/step_2000/policy/weights/iter_0000000 \
     --hf-path models/qwen3_8b_acetool_sft_2000_step
+
+uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkpoint_conversion.py export \
+    --hf-model models/zihan_sft_8b_think_v2 \
+    --megatron-path results/acetool_zihan_sft_8b_think_v2_lr1e-6/step_3000/policy/weights/iter_0000000 \
+    --hf-path models/zihan_sft_8b_think_v2_lr1e-6_sft_3000_step
+
+
+# ablation models
+uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkpoint_conversion.py export \
+    --hf-model models/acereason_nemotron_7b_1_1 \
+    --megatron-path results/sft_ar_11_1e-6_apos_code_low/step_3043/policy/weights/iter_0000000 \
+    --hf-path models/acetoolreason_sft_ar_11_1e-6_apos_code_low_3043_step
+
+uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkpoint_conversion.py export \
+    --hf-model models/acereason_nemotron_7b_1_1 \
+    --megatron-path results/sft_ar_11_1e-6_apos_code_medium/step_3278/policy/weights/iter_0000000 \
+    --hf-path models/acetoolreason_sft_ar_11_1e-6_apos_code_medium_3278_step
+
+uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkpoint_conversion.py export \
+    --hf-model models/acereason_nemotron_7b_1_1 \
+    --megatron-path results/sft_ar_11_1e-6_so_code_high/step_8000/policy/weights/iter_0000000 \
+    --hf-path models/acetoolreason_sft_ar_11_1e-6_so_code_high_8000_step
+
+uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkpoint_conversion.py export \
+    --hf-model models/acereason_nemotron_7b_1_1 \
+    --megatron-path results/sft_ar_11_1e-6_so_code_low/step_9444/policy/weights/iter_0000000 \
+    --hf-path models/acetoolreason_sft_ar_11_1e-6_so_code_low_9444_step
+
+uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkpoint_conversion.py export \
+    --hf-model models/acereason_nemotron_7b_1_1 \
+    --megatron-path results/sft_ar_11_1e-6_so_code_medium/step_9659/policy/weights/iter_0000000 \
+    --hf-path models/acetoolreason_sft_ar_11_1e-6_so_code_medium_9659_step
+
+uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkpoint_conversion.py export \
+    --hf-model models/acereason_nemotron_7b_1_1 \
+    --megatron-path results/sft_ar_11_1e-7_so_code_high/step_6000/policy/weights/iter_0000000 \
+    --hf-path models/acetoolreason_sft_ar_11_1e-7_so_code_high_6000_step
+
+uv run 3rdparty/Megatron-Bridge-workspace/Megatron-Bridge/examples/models/checkpoint_conversion.py export \
+    --hf-model models/acereason_nemotron_7b_1_1 \
+    --megatron-path results/sft_ar_11_1e-6_code_critique/step_3000/policy/weights/iter_0000000 \
+    --hf-path models/acetoolreason_sft_ar_11_1e-6_code_critique_3000_step

@@ -23,3 +23,12 @@ uv run examples/run_sft.py --config=examples/configs/sft_acetoolreason_zihan_sft
 uv run examples/run_sft.py --config=examples/configs/sft_acetool_qwen3_megatron.yaml
 
 uv run examples/run_sft.py --config=examples/configs/sft_acetoolreason11_megatron.yaml
+
+uv run examples/run_sft.py --config=examples/configs/acereason11_ablation/1e-6_code_critique.yaml > logs/ar_11_1e-6_code_critique.out 2>&1 &
+uv run examples/run_sft.py --config=examples/configs/acereason11_ablation/1e-6_aops_mix_code_high.yaml > logs/ar_11_1e-6_aops_mix_code_high.out 2>&1 &
+uv run examples/run_sft.py --config=examples/configs/acereason11_ablation/1e-6_aops_mix_code_medium.yaml > logs/ar_11_1e-6_aops_mix_code_medium.out 2>&1 &
+uv run examples/run_sft.py --config=examples/configs/acereason11_ablation/1e-6_aops_mix_code_low.yaml > logs/ar_11_1e-6_aops_mix_code_low.out 2>&1 &
+uv run examples/run_sft.py --config=examples/configs/acereason11_ablation/1e-6_so_mix_code_high.yaml > logs/ar_11_1e-6_so_mix_code_high.out 2>&1 &
+uv run examples/run_sft.py --config=examples/configs/acereason11_ablation/1e-6_so_mix_code_medium.yaml > logs/ar_11_1e-6_so_mix_code_medium.out 2>&1 &
+uv run examples/run_sft.py --config=examples/configs/acereason11_ablation/1e-6_so_mix_code_low.yaml > logs/ar_11_1e-6_so_mix_code_low.out 2>&1 &
+uv run examples/run_sft.py --config=examples/configs/acereason11_ablation/1e-7_so_mix_code_high.yaml > logs/ar_11_1e-7_so_mix_code_high.out 2>&1 &

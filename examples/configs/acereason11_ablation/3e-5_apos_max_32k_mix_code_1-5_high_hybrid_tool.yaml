@@ -13,7 +13,7 @@ sft:
 
 checkpointing:
   enabled: true
-  checkpoint_dir: "results/sft_ar_11_1e-6_so_code_low"
+  checkpoint_dir: "results/sft_ar_11_1e-6_apos_code_1-5_high_max_32k_hybrid_tool"
   metric_name: "val_loss"
   higher_is_better: false
   keep_top_k: 100
@@ -54,8 +54,8 @@ policy:
       bf16: true
       clip_grad: 0
       fp16: false
-      lr: 0.000001
-      min_lr: 0.0000001
+      lr: 0.00003
+      min_lr: 0.00001
       optimizer: adam
       params_dtype: bfloat16
       sgd_momentum: 0.9
@@ -72,7 +72,7 @@ policy:
       end_weight_decay: 0.01
       lr_decay_iters: 1000
       lr_decay_style: constant
-      lr_warmup_init: 0.0000001
+      lr_warmup_init: 0.00001
       lr_warmup_iters: 100
       start_weight_decay: 0.01
       weight_decay_incr_style: constant
@@ -121,8 +121,8 @@ policy:
 data:
   max_input_seq_length: ${policy.max_total_sequence_length}
   dataset_name: "openai_format"
-  train_data_path: "sft-data-processed/problems-so/reasoning-low-with-code-acereason_nemotron_7b_1_1-qwen-sharegpt_shards/idx0-end_train.jsonl"
-  val_data_path: "sft-data-processed/problems-so/reasoning-low-with-code-acereason_nemotron_7b_1_1-qwen-sharegpt_shards/idx0-end_val.jsonl"
+  train_data_path: "sft-data-processed/problems-aops/reasoning-high-with-code-acereason_nemotron_7b_1_1-qwen-sharegpt_shards/idx0-end.maxlen32000_train.jsonl"
+  val_data_path: "sft-data-processed/problems-aops/reasoning-high-with-code-acereason_nemotron_7b_1_1-qwen-sharegpt_shards/idx0-end.maxlen32000_val.jsonl"
   chat_key: "messages"
   system_key: null
   system_prompt: null
@@ -138,12 +138,12 @@ logger:
   monitor_gpus: true  # If true, will monitor GPU usage and log to wandb and/or tensorboard
   wandb:
     project: "sft-acetoolreason-megatron"
-    name: "sft-ar-11-1e-6-so-code-low"
+    name: "sft-ar-11-1e-6-apos-code-1-5-high-max-32k-hybrid-tool"
   tensorboard:
-    log_dir: "tb_sft-ar-11-1e-6-so-code-low" 
+    log_dir: "tb_sft-ar-11-1e-6-apos-code-1-5-high-max-32k-hybrid-tool"
   mlflow:
     experiment_name: "sft-dev"
-    run_name: "sft-ar-11-1e-6-so-code-low"
+    run_name: "sft-ar-11-1e-6-apos-code-1-5-high-max-32k-hybrid-tool"
   gpu_monitoring:
     collection_interval: 10  # How often to collect GPU usage metrics (in seconds)
     flush_interval: 10  # How often to flush GPU usage metrics to the loggers (in seconds)
