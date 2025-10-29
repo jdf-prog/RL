@@ -429,7 +429,12 @@ def sft_train(
                     )
                     # print(cat_and_padded["token_ids"].shape, input_lengths.shape)
                     # print(cat_and_padded["token_loss_mask"].sum(-1).tolist())
-                    # print(tokenizer.decode(cat_and_padded["token_ids"][0]))
+                    # with open("./debug_sft_token_ids.txt", "a") as f:
+                    #     for i, token_ids in enumerate(cat_and_padded["token_ids"]):
+                    #         f.write(tokenizer.decode(token_ids))
+                    #         f.write("====="*10 + "\n")
+                    #         f.write(tokenizer.decode(token_ids * cat_and_padded["token_loss_mask"][i]))
+                    #         f.write("-----"*10 + "\n")
 
                     train_data: BatchedDataDict = BatchedDataDict(
                         {
